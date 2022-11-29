@@ -1,17 +1,6 @@
 #!/usr/bin/python3
-
-import random
-
-number = random.randint(-10, 10)
-
-if number > 0:
-
-    print("{:d} is positive".format(number))
-
-elif number == 0:
-
-    print("{:d} is zero".format(number))
-
-else:
-
-    print("{:d} is negative".format(number))
+def islower(c):
+    ascii_num = ord(c)
+    if ascii_num >= 97 and ascii_num <= 122:
+        return True
+    return False
