@@ -1,17 +1,9 @@
 #!/usr/bin/python3
-
-import random
-
-number = random.randint(-10, 10)
-
-if number > 0:
-
-    print("{:d} is positive".format(number))
-
-elif number == 0:
-
-    print("{:d} is zero".format(number))
-
-else:
-
-    print("{:d} is negative".format(number))
+def remove_char_at(str, n):
+    i = 0
+    new_str = ""
+    for ch in str:
+        if i != n:
+            new_str += ch
+        i += 1
+    return new_str
