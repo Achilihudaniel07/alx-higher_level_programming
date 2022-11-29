@@ -1,17 +1,10 @@
 #!/usr/bin/python3
+def print_last_digit(number):
+    if number >= 0:
+        l_digit = number % 10
+    else:
+        l_digit = number % -10
+        l_digit *= -1
 
-import random
-
-number = random.randint(-10, 10)
-
-if number > 0:
-
-    print("{:d} is positive".format(number))
-
-elif number == 0:
-
-    print("{:d} is zero".format(number))
-
-else:
-
-    print("{:d} is negative".format(number))
+    print("{:d}".format(l_digit), end='')
+    return (l_digit)
