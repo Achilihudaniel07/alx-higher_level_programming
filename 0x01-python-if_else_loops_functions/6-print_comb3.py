@@ -1,17 +1,7 @@
 #!/usr/bin/python3
-
-import random
-
-number = random.randint(-10, 10)
-
-if number > 0:
-
-    print("{:d} is positive".format(number))
-
-elif number == 0:
-
-    print("{:d} is zero".format(number))
-
-else:
-
-    print("{:d} is negative".format(number))
+for number in range(100):
+    if int(number / 10) != number % 10 and int(number / 10) < number % 10:
+        print("{}{}".format(int(number / 10), number % 10), end="")
+        if (number != 89):
+            print(", ", end="")
+print("")
