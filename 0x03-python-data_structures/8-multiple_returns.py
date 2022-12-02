@@ -1,7 +1,10 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
+def multiple_returns(sentence):
+    len_sen = len(sentence)
 
-def print_list_integer(my_list=[]):
+    if (len_sen == 0):
+        new_tuple = (len_sen, None)
+    else:
+        new_tuple = (len_sen, sentence[0])
 
-    for i in range(len(my_list)):
-
-        print("{:d}".format(my_list[i]))
+    return (new_tuple)
