@@ -1,7 +1,10 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
+def new_in_list(my_list, idx, element):
+    length = len(my_list)
 
-def print_list_integer(my_list=[]):
+    new_list = my_list[:]
 
-    for i in range(len(my_list)):
+    if 0 <= idx < length:
+        new_list[idx] = element
 
-        print("{:d}".format(my_list[i]))
+    return (new_list)
