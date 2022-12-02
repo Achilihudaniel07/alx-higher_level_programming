@@ -1,7 +1,5 @@
- #!/usr/bin/python3
-
-def print_list_integer(my_list=[]):
-
-    for i in range(len(my_list)):
-
-        print("{:d}".format(my_list[i]))
+#!/usr/bin/python3
+a = 89
+b = 10
+a, b = b, a
+print("a={:d} - b={:d}".format(a, b))
