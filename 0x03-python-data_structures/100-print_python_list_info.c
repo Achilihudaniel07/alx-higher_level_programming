@@ -1,7 +1,27 @@
- #!/usr/bin/python3
+#include <stdio.h>
+#include <Python.h>
 
-def print_list_integer(my_list=[]):
+/**
+ * print_python_list_info - prints python list info
+ *
+ * @p: PyObject
+ * Return: no return
+ */
+void print_python_list_info(PyObject *p)
+{
+	long int size, i;
+	PyListObject *list;
+	PyObject *item;
 
-    for i in range(len(my_list)):
+	size = Py_SIZE(p);
+	printf("[*] Size of the Python List = %ld\n", size);
 
-        print("{:d}".format(my_list[i]))
+	list = (PyListObject *)p;
+	printf("[*] Allocated = %ld\n", list->allocated);
+
+	for (i = 0; i < size; i++)
+	{
+		item = PyList_GetItem(p, i);
+		printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
+	}
+}
