@@ -1,15 +1,9 @@
-/usr/bin/python3
+#!/usr/bin/python3
+def complex_delete(a_dictionary, value):
+    list_keys = list(a_dictionary.keys())
 
-def square_matrix_simple(matrix=[]):
+    for value_dic in list_keys:
+        if value == a_dictionary.get(value_dic):
+            del a_dictionary[value_dic]
 
-    new_matrix = matrix.copy()
-
-
-
-    for i in range(len(matrix)):
-
-        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
-
-
-
-    return (new_matrix)
+    return (a_dictionary)
