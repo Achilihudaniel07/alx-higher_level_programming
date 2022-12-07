@@ -1,15 +1,9 @@
-/usr/bin/python3
+#!/usr/bin/python3
+def multiply_by_2(a_dictionary):
+    new_dir = a_dictionary.copy()
+    list_keys = list(new_dir.keys())
 
-def square_matrix_simple(matrix=[]):
+    for i in list_keys:
+        new_dir[i] *= 2
 
-    new_matrix = matrix.copy()
-
-
-
-    for i in range(len(matrix)):
-
-        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
-
-
-
-    return (new_matrix)
+    return (new_dir)
