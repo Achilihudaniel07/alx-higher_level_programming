@@ -1,15 +1,6 @@
-/usr/bin/python3
-
-def square_matrix_simple(matrix=[]):
-
-    new_matrix = matrix.copy()
-
-
-
-    for i in range(len(matrix)):
-
-        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
-
-
-
-    return (new_matrix)
+#!/usr/bin/python3
+def print_sorted_dictionary(a_dictionary):
+    list_ord = list(a_dictionary.keys())
+    list_ord.sort()
+    for i in list_ord:
+        print("{}: {}".format(i, a_dictionary.get(i)))
