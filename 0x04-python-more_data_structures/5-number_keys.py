@@ -1,15 +1,9 @@
-/usr/bin/python3
+#!/usr/bin/python3
+def number_keys(a_dictionary):
+    num = 0
+    list_keys = list(a_dictionary.keys())
 
-def square_matrix_simple(matrix=[]):
+    for i in list_keys:
+        num += 1
 
-    new_matrix = matrix.copy()
-
-
-
-    for i in range(len(matrix)):
-
-        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
-
-
-
-    return (new_matrix)
+    return (num)
