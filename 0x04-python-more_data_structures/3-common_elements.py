@@ -1,15 +1,3 @@
-/usr/bin/python3
-
-def square_matrix_simple(matrix=[]):
-
-    new_matrix = matrix.copy()
-
-
-
-    for i in range(len(matrix)):
-
-        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
-
-
-
-    return (new_matrix)
+#!/usr/bin/python3
+def common_elements(set_1, set_2):
+    return (set_1 & set_2)
