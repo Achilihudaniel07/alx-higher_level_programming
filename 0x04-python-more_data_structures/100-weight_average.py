@@ -1,15 +1,13 @@
-/usr/bin/python3
+#!/usr/bin/python3
+def weight_average(my_list=[]):
+    if not my_list:
+        return 0
 
-def square_matrix_simple(matrix=[]):
+    num = 0
+    den = 0
 
-    new_matrix = matrix.copy()
+    for tup in my_list:
+        num += tup[0] * tup[1]
+        den += tup[1]
 
-
-
-    for i in range(len(matrix)):
-
-        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
-
-
-
-    return (new_matrix)
+    return (num / den)
