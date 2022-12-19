@@ -1,21 +1,18 @@
 #!/usr/bin/python3
+safe_print_integer_err = \
+    __import__('100-safe_print_integer_err').safe_print_integer_err
 
-safe_print_list = __import__(0-safe_print_list).safe_print_list
+value = 89
+has_been_print = safe_print_integer_err(value)
+if not has_been_print:
+    print("{} is not an integer".format(value))
 
+value = -89
+has_been_print = safe_print_integer_err(value)
+if not has_been_print:
+    print("{} is not an integer".format(value))
 
-
-my_list = [1, 2, 3, 4, 5]
-
-
-
-nb_print = safe_print_list(my_list, 2)
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list))
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list) + 2)
-
-print("nb_print: {:d}".format(nb_print))
+value = "Holberton"
+has_been_print = safe_print_integer_err(value)
+if not has_been_print:
+    print("{} is not an integer".format(value))
