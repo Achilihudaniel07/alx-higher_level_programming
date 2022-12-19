@@ -1,21 +1,7 @@
 #!/usr/bin/python3
+raise_exception_msg = __import__('6-raise_exception_msg').raise_exception_msg
 
-safe_print_list = __import__(0-safe_print_list).safe_print_list
-
-
-
-my_list = [1, 2, 3, 4, 5]
-
-
-
-nb_print = safe_print_list(my_list, 2)
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list))
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list) + 2)
-
-print("nb_print: {:d}".format(nb_print))
+try:
+    raise_exception_msg("C is fun")
+except NameError as ne:
+    print(ne)
