@@ -1,21 +1,25 @@
 #!/usr/bin/python3
-
-safe_print_list = __import__(0-safe_print_list).safe_print_list
-
+safe_function = __import__('101-safe_function').safe_function
 
 
-my_list = [1, 2, 3, 4, 5]
+def my_div(a, b):
+    return a / b
 
 
+result = safe_function(my_div, 10, 2)
+print("result of my_div: {}".format(result))
 
-nb_print = safe_print_list(my_list, 2)
+result = safe_function(my_div, 10, 0)
+print("result of my_div: {}".format(result))
 
-print("nb_print: {:d}".format(nb_print))
 
-nb_print = safe_print_list(my_list, len(my_list))
+def print_list(my_list, len):
+    i = 0
+    while i < len:
+        print(my_list[i])
+        i += 1
+    return len
 
-print("nb_print: {:d}".format(nb_print))
 
-nb_print = safe_print_list(my_list, len(my_list) + 2)
-
-print("nb_print: {:d}".format(nb_print))
+result = safe_function(print_list, [1, 2, 3, 4], 10)
+print("result of print_list: {}".format(result))
