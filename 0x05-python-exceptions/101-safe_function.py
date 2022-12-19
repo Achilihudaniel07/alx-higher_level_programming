@@ -1,21 +1,17 @@
 #!/usr/bin/python3
-
-safe_print_list = __import__(0-safe_print_list).safe_print_list
-
+# 100-safe_print_integer_err.py
 
 
-my_list = [1, 2, 3, 4, 5]
+import sys
 
 
-
-nb_print = safe_print_list(my_list, 2)
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list))
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list) + 2)
-
-print("nb_print: {:d}".format(nb_print))
+def safe_print_integer_err(value):
+    """
+    A function that prints an integer
+    """
+    try:
+        print("{:d}".format(value))
+        return True
+    except (TypeError, ValueError):
+        print("Exception: {}".format(sys.exc_info()[1]), file=sys.stderr)
+        return False
