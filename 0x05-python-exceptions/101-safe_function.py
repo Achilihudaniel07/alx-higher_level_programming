@@ -1,17 +1,25 @@
 #!/usr/bin/python3
-# 100-safe_print_integer_err.py
+safe_function = __import__('101-safe_function').safe_function
 
 
-import sys
+def my_div(a, b):
+    return a / b
 
 
-def safe_print_integer_err(value):
-    """
-    A function that prints an integer
-    """
-    try:
-        print("{:d}".format(value))
-        return True
-    except (TypeError, ValueError):
-        print("Exception: {}".format(sys.exc_info()[1]), file=sys.stderr)
-        return False
+result = safe_function(my_div, 10, 2)
+print("result of my_div: {}".format(result))
+
+result = safe_function(my_div, 10, 0)
+print("result of my_div: {}".format(result))
+
+
+def print_list(my_list, len):
+    i = 0
+    while i < len:
+        print(my_list[i])
+        i += 1
+    return len
+
+
+result = safe_function(print_list, [1, 2, 3, 4], 10)
+print("result of print_list: {}".format(result))
