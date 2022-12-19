@@ -1,21 +1,17 @@
 #!/usr/bin/python3
 
-safe_print_list = __import__(0-safe_print_list).safe_print_list
 
-
-
-my_list = [1, 2, 3, 4, 5]
-
-
-
-nb_print = safe_print_list(my_list, 2)
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list))
-
-print("nb_print: {:d}".format(nb_print))
-
-nb_print = safe_print_list(my_list, len(my_list) + 2)
-
-print("nb_print: {:d}".format(nb_print))
+def safe_print_list_integers(my_list=[], x=0):
+    """
+    a function that prints the first x elements of
+    a list and only integers.
+    """
+    count = 0
+    for element in range(0, x):
+        try:
+            print("{:d}".format(my_list[element]), end="")
+            count += 1
+        except (ValueError, TypeError):
+            continue
+    print("")
+    return 
