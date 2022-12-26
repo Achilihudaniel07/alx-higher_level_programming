@@ -6,7 +6,6 @@ max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
     """Test case for the max_integer_function
-    
     """
 
     def test_typeErrors(self):
@@ -21,4 +20,4 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1, 2, 3]), 3)
         self.assertEqual(max_integer([-1000000, 1, 2, 3]), 3)
         self.assertEqual(max_integer([-1000000, 10000, 2.5, 3, 10000000000]),
-                         10000000000) 
+                         10000000000)
