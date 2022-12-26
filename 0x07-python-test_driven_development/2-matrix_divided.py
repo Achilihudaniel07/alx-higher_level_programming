@@ -7,6 +7,7 @@ def matrix_divided(matrix, div):
     Args:
         matrix (list): A list of lists of integers
         or floats div (int/float): The divisor.
+        
     """
 
     if type(div) not in [int, float]:
