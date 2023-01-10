@@ -14,4 +14,3 @@ class MyInt(int):
     def __ne__(self, other):
         """Overrides not-equals, inverting it"""
         return int(self) == int(other)
-
