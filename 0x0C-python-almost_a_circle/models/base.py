@@ -9,18 +9,22 @@ import turtle
 
 class Base:
     """Represents the base class
+
     Observation:
         The class is used to manage id attribute
         in all your future classes and to avoid duplicating
         the same code (by extension, same bugs)
+
     """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
         """Instantiates the id class with
+
         Args:
             id(int): the class id
+
         """
         if id is not None:
             self.id = id
@@ -32,8 +36,10 @@ class Base:
     def to_json_string(list_dictionaries):
         """Returns the JSON string representation
         of list_dictionaries
+
         Args:
             list_dictionaries(list): list of dictionary
+
         """
         if list_dictionaries is None or list_dictionaries is " ":
             return "[]"
@@ -43,9 +49,11 @@ class Base:
     def save_to_file(cls, list_objs):
         """ writes the JSON string representation of
         list_objs to a file
+
         Args:
             list_objs(): a list of instances who inherits ofBase -
             example: list of Rectangle or list of Square instances
+
         """
         if list_objs is None:
             with open(cls.__name__ + ".json", "w") as file:
@@ -59,9 +67,11 @@ class Base:
     def from_json_string(json_string):
         """Returns the list of the JSON string
         representation json_string
+
         Args:
             json_string(str): a string representing a list
             of dictionaries
+
         """
         if json_string is None:
             return []
@@ -72,9 +82,11 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set
+
         Args:
             **dictionary(pointer): can be thought of as a
             double pointer to a dictionary
+
         """
         if cls.__name__ == "Rectangle":
             result = cls(32, 3)
@@ -89,6 +101,7 @@ class Base:
     def load_from_file(cls):
         """A class method that returns a
         list instance
+
         """
         list_instance = []
         file_name = cls.__name__ + ".json"
@@ -104,6 +117,7 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """A  class method that serializes and
         deserializes in CSV
+
         """
         if (list_objs is None or not isinstance(list_objs, list)
                 or not all(isinstance(j, Base) for j in list_objs)):
