@@ -1,1 +1,10 @@
-0x13-javascript_objects_scopes_closures
+#!/usr/bin/node
+
+let cuantity = 0;
+
+const logMe = (item) => {
+  console.log(`${cuantity}: ${item}`);
+  cuantity++;
+};
+
+module.exports = { logMe };
