@@ -1,1 +1,10 @@
-0x13-javascript_objects_scopes_closures
+#!/usr/bin/node
+
+class Rectangle {
+  constructor (w, h) {
+    this.width = w;
+    this.height = h;
+  }
+}
+
+module.exports = Rectangle;
