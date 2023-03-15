@@ -1,1 +1,9 @@
-0x13-javascript_objects_scopes_closures
+#!/usr/bin/node
+
+const esrever = (list) => {
+  const reversedArray = [];
+  list.forEach((element) => reversedArray.unshift(element));
+  return (reversedArray);
+};
+
+module.exports = { esrever };
