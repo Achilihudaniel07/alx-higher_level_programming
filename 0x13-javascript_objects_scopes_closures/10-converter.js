@@ -1,1 +1,7 @@
-0x13-javascript_objects_scopes_closures
+#!/usr/bin/node
+
+exports.converter = function (base) {
+  return function (num) {
+    return num.toString(base);
+  };
+};
