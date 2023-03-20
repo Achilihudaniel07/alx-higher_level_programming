@@ -1,1 +1,3 @@
-0x0F-python-object_relational_mapping
+#!/bin/bash
+# Sends a DELETE request to the URL passed as the first argument and displays the body of the respons
+curl -s -X DELETE "${1}"
