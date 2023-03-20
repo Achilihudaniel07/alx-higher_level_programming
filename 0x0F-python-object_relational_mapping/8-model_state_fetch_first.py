@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-    Lists all state objs.
+    Lists first state from DB.
 '''
 
 import sqlalchemy
@@ -17,6 +17,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(eng)
     Session = sessionmaker(bind=eng)
     session = Session()
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+    first_state = session.query(State).order_by(State.id).first()
+    if first_state is not None:
+        print("{}: {}".format(first_state.id, first_state.name))
+    else:
+        print("Nothing")
     session.close()
