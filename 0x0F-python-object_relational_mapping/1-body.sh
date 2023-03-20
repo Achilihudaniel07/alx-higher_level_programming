@@ -1,1 +1,3 @@
-0x0F-python-object_relational_mapping
+#!/bin/bash
+# Sends a GET request to the URL, and displays the body of the response
+curl -s -L "${1}"
