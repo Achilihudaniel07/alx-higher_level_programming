@@ -1,31 +1,32 @@
 #!/usr/bin/python3
-'''script for task 1'''
+'''task 10 script'''
 
-import MySQLdb
+from model_state import Base, State
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 import sys
 
 
-def list_N():
-    '''lists all states with a name that starts with N'''
+if __name__ == '__main__':
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
+    state_name = sys.argv[4]
     host = 'localhost'
-    port = 3306
+    port = '3306'
 
-    db = MySQLdb.connect(host=host, user=username, passwd=password,
-                         db=db_name, port=port)
-    cur = db.cursor()
-    cur.execute('SELECT * FROM states WHERE name regexp "^N.*" ' +
-                'ORDER BY states.id ASC')
-    result = cur.fetchall()
-    cur.close()
-    db.close()
+    engine = create_engine('mysql+mysqldb://{}:{}@{}:{}/{}'.format(
+                           username, password, host, port, db_name),
+                           pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
+    local_session = Session()
+    result = local_session.query(State).filter(
+                            State.name.like(state_name)
+                            ).first()
+    local_session.close()
+    engine.dispose()
+
     if result:
-        for row in result:
-            if row[1][0] == "N":
-                print(row)
-
-
-if __name__ == "__main__":
-    list_N()
+        print(result.id)
+    else:
+        print('Not found')
