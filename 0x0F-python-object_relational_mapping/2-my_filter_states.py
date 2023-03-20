@@ -1,22 +1,37 @@
-0#!/usr/bin/python3
-""" Cities in state
-    file that prints all City objects from the database hbtn_0e_14_usa
-"""
+#!/usr/bin/python3
+''' script for task 2
+    script should take 4 arguments: mysql username,
+    mysql password, database name and state name searched
+'''
 
-from model_state import Base, State
-from model_city import City
-from sys import argv
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
+import MySQLdb
+import sys
 
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        argv[1], argv[2], argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    for state, city in session.query(State, City).\
-            filter(State.id == City.state_id).order_by(City.id).all():
-        print("{}: ({}) {}" .format(state.name, city.id, city.name))
-    session.close()
+def list_with_name():
+    ''' displays all values in the states table in hbtn db where name
+        matches the argument passed to the script
+    '''
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+    state_name = sys.argv[4]
+    host = 'localhost'
+    port = 3306
+
+    db = MySQLdb.connect(host=host, user=username, passwd=password,
+                         db=db_name, port=port)
+    cur = db.cursor()
+    cur.execute(('SELECT * FROM states WHERE BINARY name = \'{}\'\
+                 ORDER BY id ASC;').format(state_name))
+    result = cur.fetchall()
+    cur.close()
+    db.close()
+
+    if result:
+        for row in result:
+            print(row)
+
+
+if __name__ == '__main__':
+    list_with_name()
