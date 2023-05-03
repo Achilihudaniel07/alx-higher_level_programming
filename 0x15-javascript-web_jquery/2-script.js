@@ -1,1 +1,3 @@
-0x15-javascript-web_jquery
+$('DIV#red_header').click(function () {
+  $('HEADER').css('color', '#FF0000');
+});
