@@ -1,1 +1,3 @@
-0x15-javascript-web_jquery
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('HEADER').style.color = '#FF0000';
+});
