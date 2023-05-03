@@ -1,1 +1,3 @@
-0x15-javascript-web_jquery
+$.get('https://swapi.co/api/people/5/?format=json', function (data) {
+  $('DIV#character').text(data.name);
+});
