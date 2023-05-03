@@ -1,1 +1,3 @@
-0x15-javascript-web_jquery
+$('DIV#toggle_header').click(function () {
+  $('HEADER').toggleClass('green red');
+});
